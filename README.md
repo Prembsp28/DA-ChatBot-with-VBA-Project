@@ -61,9 +61,7 @@ Sub AskChatBot()
         category = LCase(wsData.Cells(i, 5).Value)
         product = LCase(wsData.Cells(i, 6).Value)
 
-        ' ==========================
-        ' FIND MATCHING KEYWORD
-        ' ==========================
+ 
         If InStr(query, orderID) > 0 Then
             foundKeyword = wsData.Cells(i, 1).Value
 
@@ -83,9 +81,7 @@ Sub AskChatBot()
 
         If foundKeyword <> "" Then
 
-            ' ==========================
-            ' ORDER DATE
-            ' ==========================
+            
             If InStr(query, "order date") > 0 Then
 
                 response = "Order Date of " & foundKeyword & _
@@ -93,45 +89,34 @@ Sub AskChatBot()
 
                 Exit For
 
-            ' ==========================
-            ' QUANTITY
-            ' ==========================
+           
             ElseIf InStr(query, "quantity") > 0 Then
 
                 totalValue = totalValue + wsData.Cells(i, 7).Value
                 response = "Quantity of " & foundKeyword & _
                 " is : " & totalValue
 
-            ' ==========================
-            ' UNIT PRICE
-            ' ==========================
+           
             ElseIf InStr(query, "unit price") > 0 Then
 
                 totalValue = totalValue + wsData.Cells(i, 8).Value
                 response = "Unit Price of " & foundKeyword & _
                 " is : $ " & totalValue
 
-            ' ==========================
-            ' SALES AMOUNT
-            ' ==========================
+           
             ElseIf InStr(query, "sales") > 0 Then
 
                 totalValue = totalValue + wsData.Cells(i, 9).Value
                 response = "Sales Amount of " & foundKeyword & _
                 " is : $ " & totalValue
 
-            ' ==========================
-            ' TARGET
-            ' ==========================
+            
             ElseIf InStr(query, "target") > 0 Then
 
                 totalValue = totalValue + wsData.Cells(i, 10).Value
                 response = "Target Amount of " & foundKeyword & _
                 " is : $ " & totalValue
 
-            ' ==========================
-            ' STATUS
-            ' ==========================
             ElseIf InStr(query, "status") > 0 Then
 
                 response = "Status of " & foundKeyword & _
